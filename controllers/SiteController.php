@@ -68,7 +68,7 @@ class SiteController extends Controller
         $topic = new Topic();
         $query = Topic::find();
         $count = $query->count();
-        $pages = new Pagination(['totalCount' => $count]);        
+        $pages = new Pagination(['totalCount' => $count, 'pageSize' => 10]);        
         
         $topics = $query->orderBy('id')->offset($pages->offset)
         ->limit($pages->limit)->all();
@@ -148,6 +148,9 @@ class SiteController extends Controller
         $messages = $query->orderBy('id')->offset($pages->offset)
         ->limit($pages->limit)->all();
         
+        $query2 = Topic::find()->where(['id' => $param]);
+        $topic = $query2->limit(1)->all();
+        $titleTopic = $topic[0]->name;
         //$upload = new ImageUpload();
        /* if (Yii::$app->request->isPost) {
             $mess->imageFile = UploadedFile::getInstance($mess, 'imageFile');
@@ -158,7 +161,7 @@ class SiteController extends Controller
             'messages' => $messages, 
             'model' => $mess,
             'pages' => $pages,
-            //'upload' => $upload
+            'titleTopic' => $titleTopic
         ]);
     }
     

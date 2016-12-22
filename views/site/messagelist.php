@@ -9,6 +9,7 @@ use yii\widgets\LinkPager;
 $this->title = 'Messages';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
+<h2 id="topic-title">['<?php echo $titleTopic; ?>']</h2>
 <?php if (Yii::$app->session->hasFlash('del_key')): ?>
   <div class="alert alert-success alert-dismissable">
   <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
@@ -18,16 +19,16 @@ $this->title = 'Messages';
 <?php endif; ?>
 <div class="row site-about">
      <?php foreach ($messages as $message): ?>
-                        <div class="message col-xs-12" style="border: 1px dashed #333; margin-bottom: 20px; background: #ffebeb">
+                        <div class="message col-xs-12">
                             <div class="row">
-                                <div class="col-xs-1" style="background: #9acfea;">
+                                <div class="mes-id-to col-xs-1">
                                     #<?= $message->id ?>
                                     <p style="<?= ($message->answer_for_id == '') ? 'display:none;' : 'display:block'; ?>">
                                     To: <?= $message->answer_for_id ?>
                                     </p>
                                 </div>
                                 <div class="col-xs-2">
-                                    <img style="padding-top: 10px; padding-bottom: 10px; width:100%; height:auto; <?= ($message->image == '') ? 'display:none;' : 'display:inline-block'; ?>" 
+                                    <img class="mesimage" style="<?= ($message->image == '') ? 'display:none;' : 'display:inline-block'; ?>" 
                                          href="<?= $message->image ?>" target="_blank" src="<?= $message->image ?>"/>
                                 </div>
                                 <div class="col-xs-9" >
@@ -36,7 +37,7 @@ $this->title = 'Messages';
                                 </div> 
                                 
                                 </div>
-                                <div class="row" style="background: #9acfea">
+                                <div class="row mesedit">
                                 <div class="col-xs-8">
                                     
                                     <!--<a href="index.php?r=message%2Fupdate&id=<?= $message->id ?>" type="button" class="btn btn-lg reply">Update</a>
@@ -54,7 +55,9 @@ $this->title = 'Messages';
         
     
     <div class="col-xs-12">
-     <?php echo LinkPager::widget([
+     <?php 
+     //print_r($pages);    
+     echo LinkPager::widget([
     'pagination' => $pages,
     ]); ?>
     </div>
@@ -72,7 +75,7 @@ $this->title = 'Messages';
         
     <?= $form->field($model, 'author_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'text')->textArea(['maxlength' => true]) ?>
+    <?= $form->field($model, 'text')->textArea(['rows'=> 4, 'maxlength' => true, 'style' => 'resize:none']) ?>
 
     <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
         

@@ -20,15 +20,15 @@ $this->title = 'Garbageboard';
                                     <p>By: <strong><?= ($topico->author_name == '') ? 'Anon' : $topico->author_name; ?></strong></p>                                            
                                 </div> 
                                 
-                                </div>
-                                <div class="row">
+                            </div>
+                            <div class="row">
                                 <div class="col-xs-push-8 col-xs-4">
                                    <?= $topico->date_created ?>
                                     <a type="button" class="btn btn-lg" href="index.php?r=site%2Fmessagelist&topic_id=<?= $topico->id ?>">View</a>
                                 </div>
-                                </div>
-                                <hr>
                             </div>
+                                <hr>
+                        </div>
      <?php endforeach; ?>
     
     <div class="col-xs-12">

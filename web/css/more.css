@@ -1,0 +1,61 @@
+#topic-title
+{    
+ text-align:center;   
+}
+.message
+{
+    border: 1px dashed #333; 
+    margin-bottom: 20px; 
+    background: #ffebeb;
+}
+.mes-id-to
+{
+    background: #a5ccd2;/*#9acfea;*/
+}
+.mesimage
+{
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+    width:100%; 
+    height:auto;
+}
+.mesedit
+{
+    background: #a5ccd2;/*#9acfea;*/
+}
+.message-form
+{
+    border: 1px dashed; 
+    padding: 10px; 
+    background:#d2e5e8;
+}
+.topic>div:nth-child(2)
+{
+    background: #61a6b0;
+}
+.topic>div:nth-child(3)
+{
+    background: #a5ccd2;
+}
+.topic-form
+{
+    border: 1px dashed; 
+    padding: 10px; 
+    background:#d2e5e8;
+}
+.navbar-inverse
+{
+    background: #208582;
+}
+.navbar-brand
+{
+    color: #C1BFBF !important;
+}
+.navbar-inverse .active a
+{
+    background-color: #134f4e !important;
+}
+.navbar-inverse li a
+{
+    color: #C1BFBF !important;
+}
